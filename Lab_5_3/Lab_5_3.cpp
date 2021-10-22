@@ -26,7 +26,7 @@ int main()
 	cout << "|" << setw(15) << "       f       " << "|" << setw(15) << "       z       " << "|" << endl;
 	cout << "---------------------------------" << endl;
 
-	double df = (fk - fp) / n * 1.;
+	double df = (fk - fp) / n;
 
 	for (double f = fp; f <= fk; f += df)
 	{
@@ -43,7 +43,7 @@ int main()
 double y(const double x)
 {
 	if (abs(x) >= 1)
-		return exp(x) / (1 + exp(x) + sin(1. * x)) * 1.;
+		return exp(x) / (1 + exp(x) + sin(x));
 	else
 	{
 		double S = 0;
@@ -52,7 +52,7 @@ double y(const double x)
 		S = a;
 		do {
 			j++;
-			double R = (-1.) * x * x / j;
+			double R = (-1.) * x * x / (4. * j * j - 2. * j);
 			a *= R;
 			S += a;
 		} while (j < 8);
